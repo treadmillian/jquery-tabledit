@@ -33,6 +33,7 @@ if (typeof jQuery === 'undefined') {
             warningClass: 'warning',
             mutedClass: 'text-muted',
             eventType: 'click',
+            overrideAction: 'action',
             rowIdentifier: 'id',
             hideIdentifier: false,
             autoFocus: true,
@@ -369,7 +370,7 @@ if (typeof jQuery === 'undefined') {
          */
         function ajax(action)
         {
-            var serialize = $table.find('.tabledit-input').serialize() + '&action=' + action;
+            var serialize = $table.find('.tabledit-input').serialize()  + '&' + settings.overrideAction + '=' + action;
 
             var result = settings.onAjax(action, serialize);
 
